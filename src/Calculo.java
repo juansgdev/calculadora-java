@@ -1,36 +1,48 @@
 import javax.swing.JOptionPane;
 
 public class Calculo {
-    public static double iniciarCalculo (double result, boolean firstIteration) {
-        if (firstIteration == false) {
-            JOptionPane.showMessageDialog(null, "Seu resultado atual é: " + result, null, 0);
+    public static Double iniciarCalculo (Double result) {
+        Double operando = null;
+        String operador = null;
+        Double segundoOperando = null;
+
+        if (result == null) {
+            operando = UserInput.setOperando();
+            operador = UserInput.setOperador();
+            segundoOperando = UserInput.setSegundoOperando();
+        } else {
+            operando = result;
+            operador = UserInput.setOperador();
+            segundoOperando = UserInput.setSegundoOperando();
         }
 
-        UserInput input = new UserInput(firstIteration);
-
-        if (input.segundoOperando != null) {
-            
-        }
-
-        
-
-        return 22.4;
+        return calcular(operando, operador, segundoOperando);
     };
 
-    private static String showResultMenu (double result) {
-        String[] options = {"Continuar Operação", "Limpar", "Fechar"};
+    private static Double calcular (double operando, String operador, double segundoOperando) {
+        Double result = null;
 
-        int userOption = JOptionPane.showOptionDialog(
-            null, 
-            "O resultado de sua operação é: " + result, 
-            null, 
-            0, 
-            0, 
-            null, 
-            options, 
-            null
-        );
+        switch (operador) {
+            case "Soma":
+                result = operando + segundoOperando;
+            break;
+    
+            case "Subtração":
+                result = operando - segundoOperando;
+            break;
 
-        return options[userOption];
+            case "Multiplicação":
+                result = operando * segundoOperando;
+            break;
+
+            case "Divisão":
+                result = operando / segundoOperando;
+            break;
+
+            default:
+            break;
+        };
+
+        return result;
     };
 }

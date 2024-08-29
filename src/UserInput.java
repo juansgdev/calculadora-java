@@ -1,26 +1,21 @@
 import javax.swing.JOptionPane;
 
 public class UserInput {
-    public double operando;
-    public String operacao;
-    public Double segundoOperando;
-
-    public UserInput (boolean firstIteration) {
-        this.operando = setOperando();
-        this.operacao = setOperador();
-        this.segundoOperando = (firstIteration == true) ? setSegundoOperando() : null;
-    };
-
     // setters
 
-    private static double setOperando () {
+    public static double setOperando () {
         return Double.parseDouble(JOptionPane.showInputDialog(
-            "Insira um operando:", 
-            "0"
-        ));
+            null, 
+            "Insira um operando:",
+            "...",
+            JOptionPane.QUESTION_MESSAGE,
+            null, 
+            null,
+            0
+        ).toString());
     };
 
-    private static String setOperador () {
+    public static String setOperador () {
         String[] operadores = {"Soma", "Subtração", "Multiplicação", "Divisão"};
 
         int operador = JOptionPane.showOptionDialog(
@@ -37,24 +32,15 @@ public class UserInput {
         return operadores[operador];
     };
 
-    private static double setSegundoOperando () {
+    public static double setSegundoOperando () {
         return Double.parseDouble(JOptionPane.showInputDialog(
-        "Insira outro operando:", 
-        "0"
-        ));
-    };
-
-    // getters
-
-    public double getOperando () {
-        return this.operando;
-    };
-
-    public String getOperacao () {
-        return this.operacao;
-    };
-
-    public double getSegundoOperando () {
-        return this.segundoOperando;
+            null, 
+            "Insira outro operando:",
+            "...",
+            JOptionPane.QUESTION_MESSAGE,
+            null, 
+            null,
+            0
+        ).toString());
     };
 }

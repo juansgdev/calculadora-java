@@ -11,7 +11,7 @@ public class App {
         // StartStop.start();
         // StartStop.stop();
 
-        CalcStart calculadora = new CalcStart();
+        CalcController calculadora = new CalcController();
         calculadora.init();
     }
 }
