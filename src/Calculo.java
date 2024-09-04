@@ -1,5 +1,3 @@
-import javax.swing.JOptionPane;
-
 public class Calculo {
     public static Double iniciarCalculo (Double result) {
         Double operando = null;
@@ -7,13 +5,13 @@ public class Calculo {
         Double segundoOperando = null;
 
         if (result == null) {
-            operando = UserInput.setOperando();
-            operador = UserInput.setOperador();
-            segundoOperando = UserInput.setSegundoOperando();
+            operando = HandleInput.operandoInput();
+            operador = HandleInput.operadorInput();
+            segundoOperando = HandleInput.segundoOperandoInput();
         } else {
             operando = result;
-            operador = UserInput.setOperador();
-            segundoOperando = UserInput.setSegundoOperando();
+            operador = HandleInput.operadorInput();
+            segundoOperando = HandleInput.segundoOperandoInput();
         }
 
         return calcular(operando, operador, segundoOperando);

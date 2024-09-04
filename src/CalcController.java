@@ -1,5 +1,3 @@
-import javax.swing.JOptionPane;
-
 public class CalcController {
     private boolean isEnd;
     private Double result;
@@ -18,7 +16,6 @@ public class CalcController {
             this.result = Calculo.iniciarCalculo(this.result);
             this.resultMenuOption = Menus.resultMenu(this.result);
             resultMenuAction();
-            // stop(this.isEnd);
             if (isEnd == true) {
                 break;
             }

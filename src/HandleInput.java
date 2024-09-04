@@ -1,9 +1,7 @@
 import javax.swing.JOptionPane;
 
-public class UserInput {
-    // setters
-
-    public static double setOperando () {
+public class HandleInput {
+    public static double operandoInput () {
         return Double.parseDouble(JOptionPane.showInputDialog(
             null, 
             "Insira um operando:",
@@ -15,7 +13,7 @@ public class UserInput {
         ).toString());
     };
 
-    public static String setOperador () {
+    public static String operadorInput () {
         String[] operadores = {"Soma", "Subtração", "Multiplicação", "Divisão"};
 
         int operador = JOptionPane.showOptionDialog(
@@ -32,7 +30,7 @@ public class UserInput {
         return operadores[operador];
     };
 
-    public static double setSegundoOperando () {
+    public static double segundoOperandoInput () {
         return Double.parseDouble(JOptionPane.showInputDialog(
             null, 
             "Insira outro operando:",
