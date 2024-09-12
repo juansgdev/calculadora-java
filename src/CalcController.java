@@ -1,48 +1,46 @@
 public class CalcController {
-    private boolean isEnd;
     private Double result;
     private String resultMenuOption;
 
     public CalcController () {
-        isEnd = false;
         result = null;
         String resultMenuOption = null;
     };
 
     public void init () {
-
-        while (this.isEnd == false) {
-            Menus.startMenu(this.result);
+        Menus.startMenu(this.result);
+        
+        try {
             this.result = Calculo.iniciarCalculo(this.result);
-            this.resultMenuOption = Menus.resultMenu(this.result);
-            resultMenuAction();
-            if (isEnd == true) {
-                break;
-            }
+        } catch (Exception e) {
+            HandleErrors.showError("Erro: Não é um número!\nPor favor insira somente números.", e);
+            init();
         }
 
+        this.resultMenuOption = Menus.resultMenu(this.result);
+        resultMenuAction();
     };
 
     private void resultMenuAction () {
         switch (resultMenuOption) {
             case "Continuar Operação":
-                this.isEnd = false;
+                init();
             break;
 
             case "Limpar":
                 this.result = null;
+                init();
             break;
 
             case "Fechar":
-                while (resultMenuOption == "Fechar") {
-                    this.isEnd = Menus.stopMenu();
+                boolean end = Menus.stopMenu();
 
-                    if (this.isEnd == true) {
-                        break;
-                    } else {
-                        this.resultMenuOption = Menus.resultMenu(this.result);
-                        resultMenuAction();
-                    }
+                if (end == true) {
+                    System.exit(0);
+                }
+                if (end == false) {
+                    this.resultMenuOption = Menus.resultMenu(this.result);
+                    resultMenuAction();
                 }
             break;
         }
