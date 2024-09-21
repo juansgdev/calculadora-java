@@ -1,3 +1,10 @@
+package com.juan.controllers;
+
+import com.juan.resources.Menus;
+import com.juan.resources.HandleErrors;
+
+import com.juan.calc.Calculo;
+
 public class CalcController {
     private Double result;
     private String resultMenuOption;

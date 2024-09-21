@@ -1,3 +1,4 @@
+package com.juan.resources;
 import javax.swing.JOptionPane;
 
 public class HandleErrors {
